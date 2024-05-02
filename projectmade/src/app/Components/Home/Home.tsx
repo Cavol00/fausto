@@ -1,47 +1,45 @@
-import React from 'react';
-import './Home.css';
-
-function Immagini() {
-    return (
-        <div className="box">
-            <h2>Immagini</h2>
-            {/* Aggiungi qui le tue immagini */}
-            <img src="image1.jpg" alt="Immagine 1" />
-            <img src="image2.jpg" alt="Immagine 2" />
-            <img src="image3.jpg" alt="Immagine 3" />
-        </div>
-    );
-}
-
-function Video() {
-    return (
-        <div className="box">
-            <h2>Video</h2>
-            {/* Aggiungi qui i tuoi video */}
-            <video controls>
-                <source src="video1.mp4" type="video/mp4" />
-                Il tuo browser non supporta il tag video.
-            </video>
-            <video controls>
-                <source src="video2.mp4" type="video/mp4" />
-                Il tuo browser non supporta il tag video.
-            </video>
-            <video controls>
-                <source src="video3.mp4" type="video/mp4" />
-                Il tuo browser non supporta il tag video.
-            </video>
-        </div>
-    );
-}
+import React, { useState } from 'react';
+import foto1 from '../../assets/foto1.jpg';
+import foto2 from '../../assets/foto2.jpg';
+import foto3 from '../../assets/foto3.jpg';
+import foto4 from '../../assets/foto4.jpg';
+import styles from '../styles/Home.module.css';
 
 export default function Home() {
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const menuItems = ["foto1.jpg", "foto2.jpg", "foto3.jpg", "foto4.jpg"];
+
+    const scrollLeft = () => {
+        setScrollPosition((prevPosition) => Math.max(0, prevPosition - 1));
+    };
+
+    const scrollRight = () => {
+        setScrollPosition((prevPosition) => Math.min(menuItems.length - 1, prevPosition + 1));
+    };
+
+    const handleImageClick = () => {
+        const selectedPath = `/foto${scrollPosition + 1}`;
+        console.log(selectedPath); // Puoi navigare alla pagina desiderata qui
+    };
+
     return (
-        <div>
+        <div className={styles.container}>
             <h1>ORIENTAMENTO</h1>
-            {/* Aggiungi le box delle foto */}
-            <Immagini />
-            {/* Aggiungi le box dei video */}
-            <Video />
+            <div className={styles.menuContainer}>
+                <button className={styles.menuArrowLeft} onClick={scrollLeft} disabled={scrollPosition === 0}>
+                    &lt;
+                </button>
+                <div className={styles.menuItemsContainer}>
+                    {menuItems.map((item, index) => (
+                        <button key={index} className={styles.menuItemButton} onClick={handleImageClick}>
+                            <img src={item} alt={`Item ${index + 1}`} width={100} height={100} />
+                        </button>
+                    ))}
+                </div>
+                <button className={styles.menuArrowRight} onClick={scrollRight} disabled={scrollPosition === menuItems.length - 1}>
+                    &gt;
+                </button>
+            </div>
         </div>
     );
 }
