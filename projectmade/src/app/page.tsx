@@ -6,7 +6,6 @@ export default function Home() {
     <main>
       <Nav />
       <Hom />
-      <Calendario />
     </main>
   );
 }
