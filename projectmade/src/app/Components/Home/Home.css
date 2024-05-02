@@ -1,0 +1,20 @@
+.box {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.div1 {
+    background-color: red;
+}
+
+.div2 {
+    background-color: blue;
+}
+
+.div3 {
+    background-color: green;
+}
+
+.BigTitle {
+    text-align: center;
+}
