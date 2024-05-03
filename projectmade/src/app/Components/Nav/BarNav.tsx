@@ -6,7 +6,10 @@
       <header>
         <a className="alal" href="/">Home</a>
         <span className="divider">|</span>
-        <a href="/">Open Day</a>
+        <a className='alal' href="/">
+          Open Day
+          <img src="/openDay.svg" alt="openDay" />
+          </a>
         <span className="divider">|</span>
         <a className="alal" href="/">
           <img src="/mappa.svg" alt="Mappa" />
