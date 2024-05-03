@@ -4,7 +4,10 @@
   export default function Nav() {
     return (
       <header>
-        <a className="alal" href="/">Home</a>
+        <a className="alal" href="/">
+          <img src="/home.svg" alt="casa dolce casa" />
+          Home
+          </a>
         <span className="divider">|</span>
         <a className='alal' href="/">
           Open Day
