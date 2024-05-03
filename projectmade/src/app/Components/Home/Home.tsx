@@ -23,7 +23,7 @@ export default function Home() {
             <h1>ORIENTAMENTO</h1>
             <div className="image-container">
                 <button onClick={() => setStartImageIndex(Math.max(startImageIndex - 1, 0))} disabled={startImageIndex === 0}>Previous</button>
-                {foto.slice(startImageIndex, startImageIndex + 3).map((image, index) => (
+                {foto.slice(startImageIndex, startImageIndex + 5).map((image, index) => (
                     <div key={index} className="image-box dark-box">
                         <div className="zoom-box">
                             <Image src={`/${image}`} alt="Current Image" width="230" height="230" className="circle-image" />
@@ -31,7 +31,7 @@ export default function Home() {
                         <Image src={`/${image}`} alt="Current Image" width="230" height="230" className="circle-image" onClick={() => handleImageClick(startImageIndex + index)} />
                     </div>
                 ))}
-                <button onClick={() => setStartImageIndex(Math.min(startImageIndex + 1, foto.length - 3))} disabled={startImageIndex + 3 >= foto.length}>Next</button>
+                <button onClick={() => setStartImageIndex(Math.min(startImageIndex + 1, foto.length - 5))} disabled={startImageIndex + 5 >= foto.length}>Next</button>
             </div>
             <div className="image-container">
                 <button onClick={() => setCurrentImageIndexSecond(Math.max(currentImageIndexSecond - 1, 0))} disabled={currentImageIndexSecond === 0}>Previous</button>
@@ -46,4 +46,3 @@ export default function Home() {
         </div>
     );
 }
-
