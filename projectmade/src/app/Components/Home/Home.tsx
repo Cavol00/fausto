@@ -20,18 +20,30 @@ export default function Home() {
 
     return (
         <div className="container">
+            <h1>ORIENTAMENTO</h1>
             <div className="image-container">
                 <button onClick={() => setStartImageIndex(Math.max(startImageIndex - 1, 0))} disabled={startImageIndex === 0}>Previous</button>
                 {foto.slice(startImageIndex, startImageIndex + 3).map((image, index) => (
-                    <Image key={index} src={`/${image}`} alt="Current Image" width="300" height="200" onClick={() => handleImageClick(startImageIndex + index)} />
+                    <div key={index} className="image-box dark-box">
+                        <div className="zoom-box">
+                            <Image src={`/${image}`} alt="Current Image" width="230" height="230" className="circle-image" />
+                        </div>
+                        <Image src={`/${image}`} alt="Current Image" width="230" height="230" className="circle-image" onClick={() => handleImageClick(startImageIndex + index)} />
+                    </div>
                 ))}
                 <button onClick={() => setStartImageIndex(Math.min(startImageIndex + 1, foto.length - 3))} disabled={startImageIndex + 3 >= foto.length}>Next</button>
             </div>
             <div className="image-container">
                 <button onClick={() => setCurrentImageIndexSecond(Math.max(currentImageIndexSecond - 1, 0))} disabled={currentImageIndexSecond === 0}>Previous</button>
-                <Image src={`/${secondFoto[currentImageIndexSecond]}`} alt="Current Image" width="300" height="200" onClick={() => handleImageClickSecond(currentImageIndexSecond)} />
+                <div className="image-box dark-box">
+                    <div className="zoom-box">
+                        <Image src={`/${secondFoto[currentImageIndexSecond]}`} alt="Current Image" width="230" height="230" className="circle-image" />
+                    </div>
+                    <Image src={`/${secondFoto[currentImageIndexSecond]}`} alt="Current Image" width="230" height="230" className="circle-image" onClick={() => handleImageClickSecond(currentImageIndexSecond)} />
+                </div>
                 <button onClick={() => setCurrentImageIndexSecond(Math.min(currentImageIndexSecond + 1, secondFoto.length - 1))} disabled={currentImageIndexSecond === secondFoto.length - 1}>Next</button>
             </div>
         </div>
     );
 }
+
