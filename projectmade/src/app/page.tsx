@@ -6,6 +6,7 @@ import Mappa from "./Components/Mappa/Mappa";
 export default function Home() {
   return (
     <main>
+      <Nav />
       <Hom />
     </main>
   );

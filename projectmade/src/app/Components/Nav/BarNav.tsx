@@ -8,8 +8,13 @@ export default function Nav() {
         <ul>
           <li>
             <a href="/">Home</a>
+            <span className="divider">|</span>
             <a href="/">Open Day</a>
-            <a href="/">Mappa</a>
+            <span className="divider">|</span>
+            <a href="/">
+              Mappa
+              <img src="/mappa.svg" alt="Mappa" />
+            </a>
           </li>
         </ul>
       </nav>
