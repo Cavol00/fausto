@@ -1,23 +1,18 @@
-import React from 'react';
-import './BarNav.css';
+  import React from 'react';
+  import './BarNav.css';
 
-export default function Nav() {
-  return (
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <a href="/">Home</a>
-            <span className="divider">|</span>
-            <a href="/">Open Day</a>
-            <span className="divider">|</span>
-            <a href="/">
-              Mappa
-              <img src="/mappa.svg" alt="Mappa" />
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-  );
-}
+  export default function Nav() {
+    return (
+      <header>
+        <a className="alal" href="/">Home</a>
+        <span className="divider">|</span>
+        <a href="/">Open Day</a>
+        <span className="divider">|</span>
+        <a className="alal" href="/">
+          <img src="/mappa.svg" alt="Mappa" />
+          Mappa
+        </a>
+
+      </header>
+    );
+  }
