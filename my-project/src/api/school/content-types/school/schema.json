@@ -24,6 +24,9 @@
     "Location": {
       "type": "json",
       "required": true
+    },
+    "istituteType": {
+      "type": "string"
     }
   }
 }
