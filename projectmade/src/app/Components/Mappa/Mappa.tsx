@@ -5,12 +5,9 @@ import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 
-
-
-
-export default function Mappa({ data }: any , { consumazione }: any, { convitto }: any, { trasporto }: any) {
+export default function Mappa({ data }: any) {
   const markers = data.map((school: any) => {
-    console.log(school);
+    // console.log(school);
     return {
       lat: school.attributes.Location.coordinates[0],
       lng: school.attributes.Location.coordinates[1],
@@ -19,13 +16,13 @@ export default function Mappa({ data }: any , { consumazione }: any, { convitto 
       color: school.attributes.istituteType,
     };
   });
-  console.log("markers: ", JSON.stringify(markers, null, 4));
+  // console.log("markers: ", JSON.stringify(markers, null, 4));
   const iconType = (color: string) => {
-    console.log(color);
+    // console.log(color);
     switch (color) {
-      case "Liceo": 
+      case "Liceo":
         return customIconOrange;
-      
+
       case "Tecnico":
         return customIconCyan;
 
@@ -58,15 +55,15 @@ export default function Mappa({ data }: any , { consumazione }: any, { convitto 
     <MapContainer
       center={[45.887384120868745, 11.033286614780325]}
       zoom={14}
-      style={{ height: "100vh", width: "100wh" }}
+      style={{ height: "80vh", width: "80wh" }}
       zoomControl={false}
     >
-      <TileLayer
+      <TileLayer 
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {markers.map((marker: any, index: any) => {
-        console.log(iconType(marker.color));
+        // console.log(iconType(marker.color));
         return (
           <Marker
             key={index}

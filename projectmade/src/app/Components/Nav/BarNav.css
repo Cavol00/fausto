@@ -1,58 +1,38 @@
+/*
+i quadrati diventano cerchi con l'hover
+far spostare il testo a destra
+mapppa dimensione quadrato
+
+*/
 header {
     background-color: #d9d9d9;
     padding: 10px 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline-block;
-    margin-right: 20px;
-}
-
-nav ul li:last-child {
-    margin-right: 0;
-}
-
-nav ul li a {
+.alal {
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    color: rgb(0, 0, 0);
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+    color: black;
+    transition: transform 0.3s ease;
 }
 
-nav ul li a:hover {
-    background-color: #555;
-}
-
-/* BarNav.css */
-header {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    padding: 5px;
+.alal:hover {
+    transform: scale(1.1);
 }
 
 .divider {
-    margin: 0 5px;
-    color: white;
+    margin: 0 10px;
+}
+
+.alal img {
+    width: 20px;
+    margin-right: 5px;
+}
+
+.alal img:hover {
+    transform: rotate(180deg);
 }

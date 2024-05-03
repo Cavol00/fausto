@@ -1,51 +1,63 @@
 "use client";
 import { useEffect, useState } from "react";
 import Mappa from "./Mappa";
+import { gridLayer } from "leaflet";
 
 export default function FiltroMappa({ data }: any) {
-  const [filteredData, setFilteredData] = useState(data); 
+  const [filteredData, setFilteredData] = useState(data);
 
-  const [Consumazione, setIsChecked1] = useState(false);
-  const [isChecked2, setIsChecked2] = useState(false);
-  const [isChecked3, setIsChecked3] = useState(false);
+  const [consumazione, setConsumazione] = useState(true);
+  const [convitto, setConvitto] = useState(true);
+  const [transporto, setTransporto] = useState(true);
 
-  const handleCheckboxChange1 = (event:any) => {
-    setIsChecked1(event.target.checked);
+  const handleConsumazione = () => {
+    setConsumazione(!consumazione);
+    console.log(consumazione);
   };
-  const handleCheckboxChange2 = (event:any) => {
-    setIsChecked2(event.target.checked);
+  const handleConvitto = () => {
+    setConvitto(!convitto);
+    console.log(convitto);
   };
-  const handleCheckboxChange3 = (event:any) => {
-    setIsChecked3(event.target.checked);
+  const handleTransporto = () => {
+    setTransporto(!transporto);
+    +console.log(transporto);
   };
+
+  // useEffect(() => {
+  //   let filteredData = data.filter((school: any) => {
+  //     if (consumazione && school.attributes.consumazione) {
+  //       return true;
+  //     }
+  //     if (convitto && school.attributes.convitto) {
+  //       return true;
+  //     }
+  //     if (transporto && school.attributes.transporto) {
+  //       return true;
+  //     }
+  //     return false;
+  //   });
+  //   setFilteredData(filteredData);
+  // }, [consumazione, convitto, transporto]);
+ 
   return (
- <div>
-      {/* Checkbox 1 */}
-      <input
-        type="checkbox"
-        checked={Consumazione}
-        onChange={handleCheckboxChange1}
-      />
-      <label>Consumazione</label>
-      <br />
-
-      {/* Checkbox 2 */}
-      <input
-        type="checkbox"
-        checked={isChecked2}
-        onChange={handleCheckboxChange2}
-      />
-      <label>Checkbox 2</label>
-      <br />
-
-      {/* Checkbox 3 */}
-      <input
-        type="checkbox"
-        checked={isChecked3}
-        onChange={handleCheckboxChange3}
-      />
-      <label>Checkbox 3</label>
-      <Mappa data={filteredData} consumazione={Consumazione}  convitto ={Convitto} />
+    <div style={{ display: "grid", gridTemplateColumns: "20% 80%" }}>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <div>
+          <input type="checkbox" onChange={handleConsumazione} />
+          <label>consumazione</label>
+        </div>
+        <div>
+          <input type="checkbox" onChange={handleConvitto} />
+          <label>convitto</label>
+        </div>
+        <div>
+          <input type="checkbox" onChange={handleTransporto} /> 
+          <label>transporto</label>
+        </div>
+      </div>
+      <div>
+        <Mappa data={filteredData} />
+      </div>
     </div>
   );
 }
