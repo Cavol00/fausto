@@ -18,13 +18,13 @@ export default function Mappa({ data }: any) {
       color: school.attributes.istituteType,
     };
   });
-  console.log("markers: ", JSON.stringify(markers, null, 2));
+  console.log("markers: ", JSON.stringify(markers, null, 4));
   const iconType = (color: string) => {
     console.log(color);
     switch (color) {
-      case "Liceo":
+      case "Liceo": 
         return customIconOrange;
-
+      
       case "Tecnico":
         return customIconCyan;
 
@@ -56,7 +56,7 @@ export default function Mappa({ data }: any) {
   return (
     <MapContainer
       center={[45.887384120868745, 11.033286614780325]}
-      zoom={13}
+      zoom={14}
       style={{ height: "100vh", width: "100wh" }}
       zoomControl={false}
     >
