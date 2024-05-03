@@ -1,44 +1,44 @@
-import React, { useState } from 'react';
-import foto1 from '../../assets/foto1.jpg';
-import foto2 from '../../assets/foto2.jpg';
-import foto3 from '../../assets/foto3.jpg';
-import foto4 from '../../assets/foto4.jpg';
-import styles from '../styles/Home.module.css';
+import { useClient } from 'next/dist/client/router';
+import Image from 'next/image';
+
+const foto = ["foto1.jpg", "foto2.jpg", "foto3.jpg", "foto4.jpg"];
+let currentImageIndex = 0;
 
 export default function Home() {
-    const [scrollPosition, setScrollPosition] = useState(0);
-    const menuItems = ["foto1.jpg", "foto2.jpg", "foto3.jpg", "foto4.jpg"];
+    const router = useClient();
 
-    const scrollLeft = () => {
-        setScrollPosition((prevPosition) => Math.max(0, prevPosition - 1));
+    const handleImageClick = (index) => {
+        router.push(`/Op${index + 1}`);
     };
 
-    const scrollRight = () => {
-        setScrollPosition((prevPosition) => Math.min(menuItems.length - 1, prevPosition + 1));
+    const handlePrevClick = () => {
+        currentImageIndex = (currentImageIndex === 0 ? foto.length - 1 : currentImageIndex - 1);
+        updateImage();
     };
 
-    const handleImageClick = () => {
-        const selectedPath = `/foto${scrollPosition + 1}`;
-        console.log(selectedPath); // Puoi navigare alla pagina desiderata qui
+    const handleNextClick = () => {
+        currentImageIndex = (currentImageIndex === foto.length - 1 ? 0 : currentImageIndex + 1);
+        updateImage();
+    };
+
+    const updateImage = () => {
+        const image = document.getElementById('current-image');
+        image.src = `/image/${foto[currentImageIndex]}`;
     };
 
     return (
-        <div className={styles.container}>
+        <div>
             <h1>ORIENTAMENTO</h1>
-            <div className={styles.menuContainer}>
-                <button className={styles.menuArrowLeft} onClick={scrollLeft} disabled={scrollPosition === 0}>
-                    &lt;
-                </button>
-                <div className={styles.menuItemsContainer}>
-                    {menuItems.map((item, index) => (
-                        <button key={index} className={styles.menuItemButton} onClick={handleImageClick}>
-                            <img src={item} alt={`Item ${index + 1}`} width={100} height={100} />
-                        </button>
-                    ))}
+            <div>
+                <div>
+                    <button onClick={handlePrevClick}>Prev</button>
+                    <button onClick={handleNextClick}>Next</button>
                 </div>
-                <button className={styles.menuArrowRight} onClick={scrollRight} disabled={scrollPosition === menuItems.length - 1}>
-                    &gt;
-                </button>
+                <div>
+                    <button onClick={() => handleImageClick(currentImageIndex)}>
+                        <Image id="current-image" src={`/image/${foto[currentImageIndex]}`} alt={`Item ${currentImageIndex + 1}`} width={100} height={100} />
+                    </button>
+                </div>
             </div>
         </div>
     );

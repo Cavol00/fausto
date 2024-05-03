@@ -1,11 +1,14 @@
 import Nav from './Components/Nav/BarNav';
-import Hom from './Components/Home/Home';
+import dynamic from 'next/dynamic';
 import Calendario from './Components/Calendario/Calendario';
+
+const DynamicHome = dynamic(() => import('./Components/Home/Home'), {ssr:false});
+
 export default function Home() {
   return (
     <main>
       <Nav />
-      <Hom />
+      <DynamicHome />
     </main>
   );
 }
