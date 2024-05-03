@@ -3,10 +3,9 @@ import { useEffect, useState } from "react";
 import Mappa from "./Mappa";
 
 export default function FiltroMappa({ data }: any) {
-  const [filteredData, setFilteredData] = useState(data);
- 
+  const [filteredData, setFilteredData] = useState(data); 
 
-  const [isChecked1, setIsChecked1] = useState(false);
+  const [Consumazione, setIsChecked1] = useState(false);
   const [isChecked2, setIsChecked2] = useState(false);
   const [isChecked3, setIsChecked3] = useState(false);
 
@@ -24,10 +23,10 @@ export default function FiltroMappa({ data }: any) {
       {/* Checkbox 1 */}
       <input
         type="checkbox"
-        checked={isChecked1}
+        checked={Consumazione}
         onChange={handleCheckboxChange1}
       />
-      <label>Checkbox 1</label>
+      <label>Consumazione</label>
       <br />
 
       {/* Checkbox 2 */}
@@ -46,7 +45,7 @@ export default function FiltroMappa({ data }: any) {
         onChange={handleCheckboxChange3}
       />
       <label>Checkbox 3</label>
-      <Mappa data={filteredData} />
+      <Mappa data={filteredData} consumazione={Consumazione}  convitto ={Convitto} />
     </div>
   );
 }

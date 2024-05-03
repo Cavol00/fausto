@@ -4,10 +4,11 @@ import { MapContainer, Marker, Popup, TileLayer, Tooltip } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
-import { useEffect, useState } from "react";
-import { divIcon } from "leaflet";
 
-export default function Mappa({ data }: any) {
+
+
+
+export default function Mappa({ data }: any , { consumazione }: any, { convitto }: any, { trasporto }: any) {
   const markers = data.map((school: any) => {
     console.log(school);
     return {
