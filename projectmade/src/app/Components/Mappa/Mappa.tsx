@@ -1,5 +1,5 @@
 "use client";
-import L from 'leaflet';
+import L from "leaflet";
 import { MapContainer, Marker, Popup, TileLayer, Tooltip } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility";
@@ -7,45 +7,75 @@ import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 import { useEffect, useState } from "react";
 import { divIcon } from "leaflet";
 
-const dualColorIcon = divIcon({
-  className: 'custom-marker-icon',
-  html: `<div style="background-color: blue; width: 20px; height: 20px; border-radius: 50%; border: 2px solid green;"></div>`,
-});
+export default function Mappa({ data }: any) {
+  const markers = data.map((school: any) => {
+    console.log(school);
+    return {
+      lat: school.attributes.Location.coordinates[0],
+      lng: school.attributes.Location.coordinates[1],
+      street: school.attributes.Location.street,
+      popupText: school.attributes.name,
+      color: school.attributes.istituteType,
+    };
+  });
+  console.log("markers: ", JSON.stringify(markers, null, 2));
+  const iconType = (color: string) => {
+    console.log(color);
+    switch (color) {
+      case "Liceo":
+        return customIconOrange;
 
+      case "Tecnico":
+        return customIconCyan;
 
-export default  function Mappa({data}: any) {
-  
-  const markers = data.map((school: any) => ({
-    lat: school.attributes.Location.coordinates[0],
-    lng: school.attributes.Location.coordinates[1],
-    popupText: school.attributes.name,
-    color: school.istituteType
-}))
-const iconType = (color: string) => {
-  switch (color) {
-    case "Liceo":
-      return "leaflet/dist/images/marker-icon-orange.png";
-    case "Tecnico":
-      return "leaflet/dist/images/marker-icon.png";
-    case "Professionale":
-      return "leaflet/dist/images/marker-icon-green.png";
-    default:
-      return dualColorIcon;
-  }
-}
+      case "Professionale":
+        return customIconGreen;
 
+      default:
+        return customIconGreenBlue;
+    }
+  };
+
+  const customIconOrange = new L.Icon({
+    iconUrl: "/Orange.svg",
+    iconSize: [32, 32], // specify the size of the icon
+  });
+  const customIconCyan = new L.Icon({
+    iconUrl: "/Cyan.svg",
+    iconSize: [32, 32], // specify the size of the icon
+  });
+  const customIconGreen = new L.Icon({
+    iconUrl: "/Green.svg",
+    iconSize: [32, 32], // specify the size of the icon
+  });
+  const customIconGreenBlue = new L.Icon({
+    iconUrl: "/GreenBlue.svg",
+    iconSize: [32, 32], // specify the size of the icon
+  });
 
   return (
-    <MapContainer center={[45.887384120868745, 11.033286614780325]} zoom={13}  style={{ height: '100vh', width: '100wh'} } zoomControl = {false}>
+    <MapContainer
+      center={[45.887384120868745, 11.033286614780325]}
+      zoom={13}
+      style={{ height: "100vh", width: "100wh" }}
+      zoomControl={false}
+    >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {markers.map((marker:any, index:any) => (
-        <Marker key={index} position={[marker.lat, marker.lng]} icon ={new L.Icon({ iconURL:iconType(marker.color) , iconSize:[32,32]})}>
-          <Popup>{marker.popupText}</Popup>
-        </Marker>
-      ))}
+      {markers.map((marker: any, index: any) => {
+        console.log(iconType(marker.color));
+        return (
+          <Marker
+            key={index}
+            position={[marker.lat, marker.lng]}
+            icon={iconType(marker.color)}
+          >
+            <Popup>{marker.popupText + "\n" + marker.street}</Popup>
+          </Marker>
+        );
+      })}
     </MapContainer>
   );
 }
