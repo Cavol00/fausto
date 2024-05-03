@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import { useState } from "react";
-
+import "./Home.css";
 export default function Home() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [currentImageIndexSecond, setCurrentImageIndexSecond] = useState(0);
@@ -35,7 +35,7 @@ export default function Home() {
     };
 
     return (
-        <div>
+        <div className="container">
             <button onClick={handlePreviousImage}>Previous</button>
             <Image src={`/${foto[currentImageIndex]}`} alt="Current Image" width="500" height="300" onClick={() => handleImageClick(currentImageIndex)} />
             <button onClick={handleNextImage}>Next</button>
