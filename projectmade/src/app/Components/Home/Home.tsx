@@ -1,45 +1,22 @@
-import { useClient } from 'next/dist/client/router';
-import Image from 'next/image';
-
-const foto = ["foto1.jpg", "foto2.jpg", "foto3.jpg", "foto4.jpg"];
-let currentImageIndex = 0;
-
+"use client";
+import Image from "next/image";
 export default function Home() {
-    const router = useClient();
+    const foto = ["foto1.jpg", "foto2.jpg", "foto3.jpg", "foto4.jpg"];
+    let currentImageIndex = 0;
 
-    const handleImageClick = (index) => {
-        router.push(`/Op${index + 1}`);
+    const handleNextImage = () => {
+        currentImageIndex = (currentImageIndex + 1) % foto.length;
     };
 
-    const handlePrevClick = () => {
-        currentImageIndex = (currentImageIndex === 0 ? foto.length - 1 : currentImageIndex - 1);
-        updateImage();
-    };
-
-    const handleNextClick = () => {
-        currentImageIndex = (currentImageIndex === foto.length - 1 ? 0 : currentImageIndex + 1);
-        updateImage();
-    };
-
-    const updateImage = () => {
-        const image = document.getElementById('current-image');
-        image.src = `/image/${foto[currentImageIndex]}`;
+    const handlePreviousImage = () => {
+        currentImageIndex = (currentImageIndex - 1 + foto.length) % foto.length;
     };
 
     return (
         <div>
-            <h1>ORIENTAMENTO</h1>
-            <div>
-                <div>
-                    <button onClick={handlePrevClick}>Prev</button>
-                    <button onClick={handleNextClick}>Next</button>
-                </div>
-                <div>
-                    <button onClick={() => handleImageClick(currentImageIndex)}>
-                        <Image id="current-image" src={`/image/${foto[currentImageIndex]}`} alt={`Item ${currentImageIndex + 1}`} width={100} height={100} />
-                    </button>
-                </div>
-            </div>
+            <button onClick={handlePreviousImage}>Previous</button>
+            <Image src={foto[currentImageIndex]} alt="Current Image" />
+            <button onClick={handleNextImage}>Next</button>
         </div>
     );
 }
