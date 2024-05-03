@@ -36,3 +36,18 @@ header {
 .alal img:hover {
     transform: rotate(180deg);
 }
+
+/*roba odulata messa nel div
+nel porco dio dio cane bastardo uccidetemi*/
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.ciao {
+    background-image: url(/wave.svg);
+    background-repeat: no-repeat;
+    display: block;
+    width: 100%;
+    height: auto;
+}
