@@ -1,7 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Mappa from "./Mappa";
-import { gridLayer } from "leaflet";
 
 export default function FiltroMappa({ data }: any) {
   const [filteredData, setFilteredData] = useState(data);
