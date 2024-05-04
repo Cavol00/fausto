@@ -19,7 +19,21 @@ diametro 230
     flex-direction: column;
     align-items: center;
 }
+.box {
+    width: 230px;
+    height: 230px;
+    transition: transform 0.3s ease;
+}
 
+.box:hover {
+    transform: scale(1.1);
+}
+
+.box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
 h1 {
     font-size: 10rem;
     margin-bottom: 300px;
