@@ -11,6 +11,7 @@ diametro 230
     width: 30%;
     border-radius: 50%;
     overflow: hidden;
+    
 }
 
 .container {
@@ -18,10 +19,26 @@ diametro 230
     flex-direction: column;
     align-items: center;
 }
+.box {
+    width: 230px;
+    height: 230px;
+    transition: transform 0.3s ease;
+}
 
+.box:hover {
+    transform: scale(1.1);
+}
+
+.box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
 h1 {
     font-size: 10rem;
-    margin-bottom: 20px;
+    margin-bottom: 300px;
+    padding-top: 100px;
+    text-align: right;
 }
 
 .image-container {
@@ -89,3 +106,56 @@ h1 {
 .button-container button:hover {
     background-color: #0056b3;
 }
+html, body {
+    margin: 0;
+    padding: 0;
+}
+/*
+.ciao {
+    background-image: url(/wave.svg);
+    background-repeat: no-repeat;
+    display: block;
+    width: 100%;
+    height: 100vh;
+    
+}*/
+.ciao{
+    background: url("/wave.svg");
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    display: block;
+    position: relative;
+    background-position: 0 180px;
+    }
+
+.sfondo{
+    background: url("/wave2.svg");
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    display: block;
+    position: relative;
+    background-position: 0 100px;
+}
+.ciao {
+    background: url("/wave.svg");
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    display: block;
+    position: relative;
+    background-position: 0 180px;
+}
+
+.sfondo {
+    background: url("/wave2.svg");
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    display: block;
+    position: relative;
+    background-position: 0 100px;
+}
+
+
