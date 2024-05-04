@@ -20,8 +20,8 @@ export default function Home() {
 
     return (
         <div className="sfondo">
-        <div className="ciao">
             
+        <div className="ciao">
         <div className="container">
             <h1>ORIENTAMENTO</h1>
             <div className="image-container">
