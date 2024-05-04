@@ -76,7 +76,7 @@ export default function Mappa({ data }: any) {
     <MapContainer
       center={[45.887384120868745, 11.033286614780325]}
       zoom={14}
-      style={{ height: "80vh", width: "80wh" }}
+      style={{ height: "75vh", width: "75wh" }}
       zoomControl={false}
     >
       <TileLayer
