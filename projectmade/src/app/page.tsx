@@ -11,8 +11,6 @@ const data = await fetchAPI();
     <main>
       <Nav />
       <Hom />
-
-      <Calendario />
     </main>
   );
 }

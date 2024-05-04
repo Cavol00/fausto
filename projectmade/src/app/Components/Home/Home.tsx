@@ -19,6 +19,9 @@ export default function Home() {
     };
 
     return (
+        <div className="sfondo">
+        <div className="ciao">
+            
         <div className="container">
             <h1>ORIENTAMENTO</h1>
             <div className="image-container">
@@ -43,6 +46,8 @@ export default function Home() {
                 </div>
                 <button onClick={() => setCurrentImageIndexSecond(Math.min(currentImageIndexSecond + 1, secondFoto.length - 1))} disabled={currentImageIndexSecond === secondFoto.length - 1}>Next</button>
             </div>
+        </div>
+        </div>
         </div>
     );
 }

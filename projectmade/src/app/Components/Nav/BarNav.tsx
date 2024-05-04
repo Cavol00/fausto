@@ -3,7 +3,7 @@ import './BarNav.css';
 
 export default function Nav() {
   return (
-    <body className='ciao'>
+    
       
 
       
@@ -23,7 +23,7 @@ export default function Nav() {
           Mappa
         </a>
       </header>
-      </body>
+     
     
   );
 }

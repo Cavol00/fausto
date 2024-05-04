@@ -3,13 +3,16 @@ i quadrati diventano cerchi con l'hover
 far spostare il testo a destra
 mapppa dimensione quadrato
 
-*/
-header {
+*/header {
     background-color: #d9d9d9;
     padding: 10px 20px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Assicura che il header sia sovrapposto a tutto il resto */
 }
 
 .alal {
@@ -35,19 +38,4 @@ header {
 
 .alal img:hover {
     transform: rotate(180deg);
-}
-
-/*roba odulata messa nel div
-nel porco dio dio cane bastardo uccidetemi*/
-html, body {
-    margin: 0;
-    padding: 0;
-}
-
-.ciao {
-    background-image: url(/wave.svg);
-    background-repeat: no-repeat;
-    display: block;
-    width: 100%;
-    height: auto;
 }
