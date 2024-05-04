@@ -1,5 +1,3 @@
-/*questo componente è stato creatoi dal puzzo del porco dio e non credo sarà mai utile a qualcuno ma grazie lo stesso della visione*/
-
 "use client"
 
 import Image from "next/image";
@@ -35,7 +33,7 @@ export default function Home() {
 
     const handleImageClick = (index: number) => {
         setStartImageIndex(index);
-        setCurrentImageIndexSecond(index); // Imposta l'indice corrispondente nel secondo array
+        setCurrentImageIndexSecond(index);
     };
 
     const handleImageClickSecond = (index: number) => {
