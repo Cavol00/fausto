@@ -1,20 +1,18 @@
 "use client"
-
-import Image from "next/image";
 import { useState } from "react";
+import Image from "next/image";
 import "./Home.css";
+import { disableCursor } from "@fullcalendar/common";
 
 interface Box {
     image: string;
+    text: string;
 }
 
 export default function Home() {
     const [startImageIndex, setStartImageIndex] = useState(0);
     const [currentImageIndexSecond, setCurrentImageIndexSecond] = useState(0);
-    interface Box {
-        image: string;
-        text: string;
-    }
+
     const foto: Box[] = [
         { image: 'foto1.png', text: 'Text 1' },
         { image: 'foto2.png', text: 'Liceo Fortunato Depero' },
@@ -36,23 +34,21 @@ export default function Home() {
         setCurrentImageIndexSecond(index);
     };
 
-    const handleImageClickSecond = (index: number) => {
+    const handleImageClickFirst = (index: number) => {
         setCurrentImageIndexSecond(index);
     };
 
     return (
-        <div className="sfondo">
-            <div className="container">
-                <div className="ciao">
-                    <h1>ORIENTAMENTO</h1>
+            <div className="sfondo">
+        <div className="ciao">
+                <div className="container">
                     <div className="image-container">
                         <button onClick={() => setStartImageIndex(Math.max(startImageIndex - 1, 0))} disabled={startImageIndex === 0}>Previous</button>
                         {foto.slice(startImageIndex, startImageIndex + 5).map((box, index) => (
-                            <div key={index} className="image-box dark-box">
-                                <div className="zoom-box">
-                                    <Image src={`/${box.image}`} alt="Current Image" width="230" height="230" className="circle-image" />
-                                </div>
-                                <Image src={`/${box.image}`} alt="Current Image" width="230" height="230" className="circle-image" onClick={() => handleImageClick(startImageIndex + index)} />
+                            <div key={index} className={`imageBox darkBox`}>
+                                <div className="zoomBox">
+ù                                </div>
+                                <Image src={`/${box.image}`} alt="Current Image" width={230} height={230} className="circleImage" onClick={() => handleImageClick(startImageIndex + index)} />
                                 <p>{box.text}</p>
                             </div>
                         ))}
@@ -60,12 +56,11 @@ export default function Home() {
                     </div>
                     <div className="image-container">
                         <button onClick={() => setCurrentImageIndexSecond(Math.max(currentImageIndexSecond - 1, 0))} disabled={currentImageIndexSecond === 0}>Previous</button>
-                        <div className="image-box dark-box">
-                            <div className="zoom-box">
-                                <Image src={`/${secondFoto[currentImageIndexSecond]}`} alt="Current Image" width="230" height="230" className="circle-image" />
+                        <div className="darkBox">
+                            <div className="zoomBox">
+                                <Image src={`/${secondFoto[currentImageIndexSecond]}`} alt="Current Image" width={230} height={230} className={"circleImage"} />
                             </div>
-                            <Image src={`/${secondFoto[currentImageIndexSecond]}`} alt="Current Image" width="230" height="230" className="circle-image" onClick={() => handleImageClickSecond(currentImageIndexSecond)} />
-                            <p>{foto[currentImageIndexSecond].text}</p> {/* Add the text of the image */}
+                            <p>{foto[currentImageIndexSecond].text}</p>
                         </div>
                         <button onClick={() => setCurrentImageIndexSecond(Math.min(currentImageIndexSecond + 1, secondFoto.length - 1))} disabled={currentImageIndexSecond === secondFoto.length - 1}>Next</button>
                     </div>
@@ -74,3 +69,5 @@ export default function Home() {
         </div>
     );
 }
+
+
