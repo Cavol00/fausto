@@ -9,7 +9,8 @@ const data = await fetchAPI();
   return (
 
     <main>
-      <FiltroMappa data={data} />
+      <Nav />
+      <Hom />
     </main>
   );
 }
