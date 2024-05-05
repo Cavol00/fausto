@@ -23,25 +23,21 @@
 .container {
     display: grid;
     justify-content: column;
-    margin: 20px auto;
+    align-items: center;
+    margin: 20px ;
 }
 
 .image-container {
-    padding-top: 40%;
+    padding-top: 24%;
+    padding-left: 10px;
     display: flex;
     flex-direction: row;
     width: 45%;
 }
 
-.darkBox {
-    
-    background-color: #333;
-    padding: 10px;
-    margin-bottom: 10px;
-}
 
 .zoomBox {
-    overflow: hidden;
+    padding: 10px;
 }
 
 .circleImage {
@@ -56,23 +52,19 @@
 
 .imageBox {
     margin-bottom: 20px;
+    padding-left:10px ;
+    padding-right:10px ;
 }
-
 button {
     background-color: #4CAF50;
     border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+    text-decoration: none;;
+    font-size: 20px;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px;
 }
-.
-button:disabled {
+.button:disabled {
     background-color: #cccccc;
     cursor: not-allowed;
 }
@@ -81,10 +73,13 @@ button:disabled {
     display: none;
 }
 
-h1{
+h1 {
     position: absolute;
     z-index: 1;
-    font-size: 20rem;
+    font-size: 15rem;
     font-weight: bold;
-    margin-bottom: 20px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top:1px;
 }
