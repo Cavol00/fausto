@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Mappa from "./Mappa";
+import "./map.css";
 
 export default function FiltroMappa({ data }: any) {
   const [filteredData, setFilteredData] = useState(data);
@@ -47,20 +48,39 @@ export default function FiltroMappa({ data }: any) {
 
   return (
     <div style={{ display: "grid", gridTemplateColumns: "20% 77%" }}>
-      <div style={{ display: "grid" }}>
-        <div>
-          <img src="/PalleNelCulo.svg" alt="" />
-          <input type="checkbox" onChange={handleConsumazione} checked={consumazione} />
-          <label style={{ fontSize: "25px" }}>consumazione</label>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "25% 75%",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <img src="/cappellaNero.svg" alt="" />
+          <label style={{ fontSize: "25px" }}>Scuole</label>
+
+        <img src="/Letto.svg" alt="" style={{}} />
+        <div className="center">
+          <input
+            type="checkbox"
+            onChange={handleConsumazione}
+            checked={consumazione}
+          />
+          <label style={{ fontSize: "25px" }}>Mensa</label>
         </div>
-        <div>
-          <img src="/Letto.svg" alt="" />
-          <input type="checkbox" onChange={handleConvitto} checked={convitto}/>
+        <img src="/Letto.svg" alt="" style={{}} />
+        <div className="center">
+          <input type="checkbox" onChange={handleConvitto} checked={convitto} />
           <label style={{ fontSize: "25px" }}>convitto</label>
         </div>
-        <div>
-          <img src="/Treni.svg" alt="" />
-          <input type="checkbox" onChange={handleTransporto} checked={transporto}/>
+
+        <img src="/Treni.svg" alt="" />
+        <div className="center">
+          <input
+            type="checkbox"
+            onChange={handleTransporto}
+            checked={transporto}
+          />
           <label style={{ fontSize: "25px" }}>transporto</label>
         </div>
       </div>

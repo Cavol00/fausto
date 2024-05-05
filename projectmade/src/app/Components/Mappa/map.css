@@ -1,0 +1,5 @@
+input[type=checkbox] {width:25px; height:25px; border-radius: 25px; margin: 0; margin-right: 10px;}
+.center {
+    display: flex;
+    align-items: center;
+}
