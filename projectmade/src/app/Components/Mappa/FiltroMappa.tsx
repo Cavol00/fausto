@@ -5,9 +5,9 @@ import Mappa from "./Mappa";
 export default function FiltroMappa({ data }: any) {
   const [filteredData, setFilteredData] = useState(data);
 
-  const [consumazione, setConsumazione] = useState(false);
-  const [convitto, setConvitto] = useState(false);
-  const [transporto, setTransporto] = useState(false);
+  const [consumazione, setConsumazione] = useState(true);
+  const [convitto, setConvitto] = useState(true);
+  const [transporto, setTransporto] = useState(true);
 
   const handleConsumazione = () => {
     setConsumazione(!consumazione);
@@ -46,22 +46,22 @@ export default function FiltroMappa({ data }: any) {
   }, [consumazione, convitto, transporto]);
 
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "20% 80%" }}>
-      <div style={{ display: "flex", flexDirection: "column" }}>
+    <div style={{ display: "grid", gridTemplateColumns: "20% 77%" }}>
+      <div style={{ display: "grid" }}>
         <div>
           <img src="/PalleNelCulo.svg" alt="" />
-          <input type="checkbox" onChange={handleConsumazione} />
-          <label>consumazione</label>
+          <input type="checkbox" onChange={handleConsumazione} checked={consumazione} />
+          <label style={{ fontSize: "25px" }}>consumazione</label>
         </div>
         <div>
           <img src="/Letto.svg" alt="" />
-          <input type="checkbox" onChange={handleConvitto} />
-          <label>convitto</label>
+          <input type="checkbox" onChange={handleConvitto} checked={convitto}/>
+          <label style={{ fontSize: "25px" }}>convitto</label>
         </div>
         <div>
           <img src="/Treni.svg" alt="" />
-          <input type="checkbox" onChange={handleTransporto} />
-          <label>transporto</label>
+          <input type="checkbox" onChange={handleTransporto} checked={transporto}/>
+          <label style={{ fontSize: "25px" }}>transporto</label>
         </div>
       </div>
       <div>
