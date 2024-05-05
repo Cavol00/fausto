@@ -29,6 +29,15 @@ export default function Mappa({ data }: any) {
       case "Professionale":
         return customIconGreen;
 
+      case "Trasporti":
+        return customIconTreni;
+
+      case "Convitto":
+        return customIconConvitto;
+
+      case "Mensa":
+        return customIconMensa;
+
       default:
         return customIconGreenBlue;
     }
@@ -46,6 +55,18 @@ export default function Mappa({ data }: any) {
     iconUrl: "/Green.svg",
     iconSize: [32, 32], // specify the size of the icon
   });
+  const customIconTreni = new L.Icon({
+    iconUrl: "/Treni.svg",
+    iconSize: [32, 32], // specify the size of the icon
+  });
+  const customIconConvitto = new L.Icon({
+    iconUrl: "/Letto.svg",
+    iconSize: [32, 32], // specify the size of the icon
+  });
+  const customIconMensa = new L.Icon({
+    iconUrl: "/PalleNelCulo.svg",
+    iconSize: [32, 32], // specify the size of the icon
+  });
   const customIconGreenBlue = new L.Icon({
     iconUrl: "/GreenBlue.svg",
     iconSize: [32, 32], // specify the size of the icon
@@ -58,7 +79,7 @@ export default function Mappa({ data }: any) {
       style={{ height: "80vh", width: "80wh" }}
       zoomControl={false}
     >
-      <TileLayer 
+      <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
