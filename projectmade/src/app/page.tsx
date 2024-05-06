@@ -10,7 +10,9 @@ export default async function Home() {
   return (
 
     <main>
-      <Hom />
+      <Nav />
+      <Hom  />
+      <FiltroMappa data={data}/>
     </main>
   );
 }

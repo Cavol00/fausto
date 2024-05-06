@@ -94,9 +94,9 @@ export default function Home() {
                         <div className="video-container" onClick={() => handleVideoClick()}>
                             <video id="videoPlayer" src={`/${video[currentImageIndexSecond].video}`} type="video/mp4" />
                             <p>{video[currentImageIndexSecond].text}</p>
+                            <p>{video[currentImageIndexSecond].indirizzo}</p>
                         </div>
                         <button onClick={() => setCurrentImageIndexSecond(Math.min(currentImageIndexSecond + 1, video.length - 1))} disabled={currentImageIndexSecond === video.length - 1}>Next</button>
-                        <p>{video[currentImageIndexSecond].indirizzo}</p>
                     </div>
                 </div>
             </div>
