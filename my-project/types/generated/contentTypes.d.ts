@@ -388,6 +388,8 @@ export interface ApiEventEvent extends Schema.CollectionType {
       'manyToOne',
       'api::school.school'
     >;
+    allDay: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
+    schoolType: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

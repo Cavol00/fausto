@@ -38,6 +38,15 @@
       "relation": "manyToOne",
       "target": "api::school.school",
       "inversedBy": "events"
+    },
+    "allDay": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "schoolType": {
+      "type": "string",
+      "required": true
     }
   }
 }

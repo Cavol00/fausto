@@ -59,7 +59,7 @@ export default function FiltroMappa({ data }: any) {
         <img src="/cappellaNero.svg" alt="" />
           <label style={{ fontSize: "25px" }}>Scuole</label>
 
-        <img src="/Letto.svg" alt="" style={{}} />
+        <img src="/PalleNelCulo.svg" alt="" style={{}} />
         <div className="center">
           <input
             type="checkbox"
