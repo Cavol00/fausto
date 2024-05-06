@@ -1,5 +1,5 @@
 "use client";
-import FullCalendar from '@fullcalendar/react';
+import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin, {
@@ -9,6 +9,18 @@ import interactionPlugin, {
 import { useEffect, useRef, useState } from "react";
 export default function Calendar({ calendarData }: any) {
   const calendarRef = useRef<any | null>(null);
+  type SchoolName =
+    | "Rosmini"
+    | "Filzi"
+    | "Don Milani"
+    | "Marconi"
+    | "Fontana"
+    | "Depero"
+    | "Barelli"
+    | "Arcivescovile"
+    | "Veronesi"
+    | "Steam"
+    | "Terziario";
   // class Event({
   // title: string;
   // description: string;
@@ -37,6 +49,7 @@ export default function Calendar({ calendarData }: any) {
         end: event.attributes.endAt,
         allDay: event.attributes.allDay,
         id: event.id,
+        color: getColor(event.attributes.schoolType),
       });
     });
     console.log(calendarData);
@@ -45,11 +58,41 @@ export default function Calendar({ calendarData }: any) {
 
   const handleDateClick = (arg: any) => {
     if (calendarRef.current) {
-        const calendarApi = calendarRef.current.getApi();
-        calendarApi.changeView('timeGridDay', arg.dateStr);
-      }
-    
+      const calendarApi = calendarRef.current.getApi();
+      calendarApi.changeView("timeGridDay", arg.dateStr);
+    }
   };
+
+  function getColor(name:any): string {
+    console.log(name);
+    switch (name) {
+        case 'Rosmini':
+            return 'red';
+        case 'Filzi':
+            return 'blue';
+        case 'Don Milani':
+            return 'green';
+        case 'Marconi':
+            return 'yellow';
+        case 'Fontana':
+            return 'purple';
+        case 'Depero':
+            return 'orange';
+        case 'Barelli':
+            return 'pink';
+        case 'Arcivescovile':
+            return 'brown';
+        case 'Veronesi':
+            return 'black';
+        case 'Steam':
+            return 'white';
+        case 'Terziario':
+            return 'gray';
+        default:
+            return 'white';
+    }
+}
+
   return (
     <>
       <main>
@@ -72,13 +115,15 @@ export default function Calendar({ calendarData }: any) {
           eventContent={function (eventInfo) {
             const calendarApi = calendarRef.current.getApi();
             const currentViewType = calendarApi.view.type;
-          
+
             console.log(eventInfo);
             return (
               <>
                 <b>{eventInfo.event.title}</b>
                 <br />
-                {currentViewType === 'timeGridDay' && <p>{eventInfo.event.extendedProps.description}</p>}
+                {currentViewType === "timeGridDay" && (
+                  <p>{eventInfo.event.extendedProps.description}</p>
+                )}
               </>
             );
           }}
