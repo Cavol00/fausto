@@ -80,7 +80,7 @@ export default function Home() {
                         </button>
                     </div>
 
-                    <div className="video">
+                    <div className="video-container">
                         <button onClick={() => setCurrentImageIndexSecond(Math.max(currentImageIndexSecond - 1, 0))} disabled={currentImageIndexSecond === 0}>Previous</button>
                         <div className="darkBox" style={{ backgroundColor: video[currentImageIndexSecond].color }}>
                             <div className="second-image-container ">
