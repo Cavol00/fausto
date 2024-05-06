@@ -6,7 +6,7 @@ import "./Home.css";
 interface Box {
     image: string;
     text: string;
-    color: string; // Aggiungi il campo colore
+    color: string;
 }
 
 export default function Home() {
@@ -14,18 +14,18 @@ export default function Home() {
     const [currentImageIndexSecond, setCurrentImageIndexSecond] = useState(0);
 
     const foto: Box[] = [
-        { image: 'foto1.png', text: 'Text 1', color: '#FF5733' },
-        { image: 'foto2.png', text: 'Liceo Fortunato Depero', color: '#33FF57' },
-        { image: 'foto3.png', text: 'Text 3', color: '#3366FF' },
-        { image: 'foto4.png', text: 'Text 4', color: '#FF3366' },
-        { image: 'foto5.png', text: 'Text 5', color: '#66FF33' },
-        { image: 'foto6.png', text: 'Text 6', color: '#FF6633' },
-        { image: 'foto7.png', text: 'Text 7', color: '#33FFFF' },
-        { image: 'foto8.png', text: 'Text 8', color: '#FFFF33' },
-        { image: 'foto9.png', text: 'Text 9', color: '#9933FF' },
-        { image: 'foto10.png', text: 'Text 10', color: '#FF9933' },
-        { image: 'foto11.png', text: 'Text 11', color: '#33FF99' },
-        { image: 'foto12.png', text: 'Text 12', color: '#FF3399' },
+        { image: 'foto1.png', text: 'Liceo "A. Rosmini"', color: '#FF5733' },
+        { image: 'foto2.png', text: 'Liceo Artistico "Fortunato Depero"', color: '#33FF57' },
+        { image: 'foto3.png', text: 'Liceo delle Scienze Umane "F. Filzi"', color: '#3366FF' },
+        { image: 'foto4.png', text: 'Liceo internazionale Arcivescovile', color: '#FF3366' },
+        { image: 'foto5.png', text: 'Liceo Stem international', color: '#66FF33' },
+        { image: 'foto6.png', text: 'Istituto Istruzione Don Milani', color: '#FF6633' },
+        { image: 'foto7.png', text: 'Istituto Tecnico Tecnologico gmarconi', color: '#33FFFF' },
+        { image: 'foto8.png', text: 'ITET Fontana', color: '#FFFF33' },
+        { image: 'foto9.png', text: 'Polo Giuseppe Veronesi CFP MADE', color: '#9933FF' },
+        { image: 'foto10.png', text: 'CFP Barelli', color: '#FF9933' },
+        { image: 'foto11.png', text: 'Istituto di formazione professionale Alberghiero', color: '#33FF99' },
+        { image: 'foto12.png', text: 'CFP UPT Scuola per il Terziario', color: '#FF3399' },
     ];
 
     const handleImageClick = (index: number) => {
@@ -42,8 +42,11 @@ export default function Home() {
             <h1>ORIENTAMENTO</h1>
             <div className="ciao">
                 <div className="container">
+
                     <div className="image-container">
-                        <button onClick={() => setStartImageIndex(Math.max(startImageIndex - 1, 0))} disabled={startImageIndex === 0}>Previous</button>
+                        <button className="sdrogo" onClick={() => setStartImageIndex(Math.max(startImageIndex - 1, 0))} disabled={startImageIndex === 0}>
+                            <span className="iconP"></span>
+                        </button>
                         {foto.slice(startImageIndex, startImageIndex + 5).map((box, index) => (
                             <div key={index} className={`imageBox darkBox`} style={{ backgroundColor: box.color }}>
                                 <div className="zoomBox">
@@ -55,9 +58,14 @@ export default function Home() {
                                 <p>{box.text}</p>
                             </div>
                         ))}
-                        <button onClick={() => setStartImageIndex(Math.min(startImageIndex + 1, foto.length - 5))} disabled={startImageIndex + 5 >= foto.length}>Next</button>
+                        <button className="sdrogo" onClick={() => setStartImageIndex(Math.min(startImageIndex + 1, foto.length - 5))} disabled={startImageIndex + 5 >= foto.length}>
+                            <span className="iconN"></span>
+                        </button>
                     </div>
-                    <div>
+
+
+
+                    <div className="video">
                         <button onClick={() => setCurrentImageIndexSecond(Math.max(currentImageIndexSecond - 1, 0))} disabled={currentImageIndexSecond === 0}>Previous</button>
                         <div className="darkBox" style={{ backgroundColor: foto[currentImageIndexSecond].color }}>
                             <div className="second-image-container ">

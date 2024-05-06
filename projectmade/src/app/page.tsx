@@ -9,7 +9,7 @@ const data = await fetchAPI();
   return (
 
     <main>
-      <Calendario/>
+      <Hom />
       </main>
   );
 }
