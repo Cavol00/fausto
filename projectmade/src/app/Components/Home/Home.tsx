@@ -90,13 +90,13 @@ export default function Home() {
                     </div>
 
 
-                    <div className="video">
-                        <button onClick={() => setCurrentImageIndexSecond(Math.max(currentImageIndexSecond - 1, 0))} disabled={currentImageIndexSecond === 0}>Previous</button>
+                    <div>
                         <div className="video-container" onClick={() => handleVideoClick()}>
                             <video id="videoPlayer" src={`/${video[currentImageIndexSecond].video}`} type="video/mp4" />
                             <p>{video[currentImageIndexSecond].text}</p>
                         </div>
                         <button onClick={() => setCurrentImageIndexSecond(Math.min(currentImageIndexSecond + 1, video.length - 1))} disabled={currentImageIndexSecond === video.length - 1}>Next</button>
+                        <p>{video[currentImageIndexSecond].indirizzo}</p>
                     </div>
                 </div>
             </div>
