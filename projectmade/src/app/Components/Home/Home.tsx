@@ -65,7 +65,8 @@ export default function Home() {
 
     return (
         <div className="sfondo">
-            <h1>ORIENTAMENTO</h1>
+            
+            <h1 className="titolo">ORIENTAMENTO</h1>
             <div className="ciao">
                 <div className="container">
 

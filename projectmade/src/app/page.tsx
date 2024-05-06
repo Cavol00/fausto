@@ -12,7 +12,6 @@ export default async function Home() {
     <main>
       <Nav />
       <Hom  />
-      <FiltroMappa data={data}/>
     </main>
   );
 }
