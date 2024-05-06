@@ -1,14 +1,14 @@
 "use client";
-import FullCalendar from "@fullcalendar/react";
+import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin, {
   Draggable,
   DropArg,
 } from "@fullcalendar/interaction";
-import { useEffect, useState } from "react";
-
+import { useEffect, useRef, useState } from "react";
 export default function Calendar({ calendarData }: any) {
+  const calendarRef = useRef<any | null>(null);
   // class Event({
   // title: string;
   // description: string;
@@ -43,10 +43,13 @@ export default function Calendar({ calendarData }: any) {
     setFixedEvents([...fixedEvents]);
   };
 
-  const handleDateClick = (arg: { date: Date; allDay: boolean }) => {
-    console.log("Date clicked: ", arg.date);
+  const handleDateClick = (arg: any) => {
+    if (calendarRef.current) {
+        const calendarApi = calendarRef.current.getApi();
+        calendarApi.changeView('timeGridDay', arg.dateStr);
+      }
+    
   };
-
   return (
     <>
       <main>
@@ -55,9 +58,9 @@ export default function Calendar({ calendarData }: any) {
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           headerToolbar={{
             left: "prev,next today",
-            center: "title",
-            right: "timeGridDay,timeGridWeek,dayGridMonth",
+            right: "title",
           }}
+          ref={calendarRef}
           initialView="dayGridMonth"
           events={fixedEvents}
           nowIndicator={true}
@@ -66,6 +69,19 @@ export default function Calendar({ calendarData }: any) {
           selectable={true}
           selectMirror={true}
           dateClick={handleDateClick}
+          eventContent={function (eventInfo) {
+            const calendarApi = calendarRef.current.getApi();
+            const currentViewType = calendarApi.view.type;
+          
+            console.log(eventInfo);
+            return (
+              <>
+                <b>{eventInfo.event.title}</b>
+                <br />
+                {currentViewType === 'timeGridDay' && <p>{eventInfo.event.extendedProps.description}</p>}
+              </>
+            );
+          }}
         />
       </main>
     </>
