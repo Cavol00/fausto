@@ -10,7 +10,7 @@ const calendarData = await fetchAPICalendar();
   return (
 
     <main>
-      <Calendario calendarData={calendarData}/>
-    </main>
+      <Hom/>
+      </main>
   );
 }
