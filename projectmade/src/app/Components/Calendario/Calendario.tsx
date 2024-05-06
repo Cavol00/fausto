@@ -49,7 +49,7 @@ export default function Calendar({ calendarData }: any) {
         end: event.attributes.endAt,
         allDay: event.attributes.allDay,
         id: event.id,
-        color: getColor(event.attributes.schoolType),
+        color: getColor(event.attributes.schoolType), 
       });
     });
     console.log(calendarData);
@@ -100,7 +100,7 @@ export default function Calendar({ calendarData }: any) {
           height={"auto"}
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           headerToolbar={{
-            left: "prev,next today",
+            left: "prev,next,dayGridMonth,timeGridDay",
             right: "title",
           }}
           ref={calendarRef}
