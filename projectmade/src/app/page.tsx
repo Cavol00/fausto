@@ -5,12 +5,12 @@ import Mappa from "./Components/Mappa/Mappa";
 import { fetchAPI, fetchAPICalendar } from "./action";
 import FiltroMappa from "./Components/Mappa/FiltroMappa";
 export default async function Home() {
-const data = await fetchAPI();
-const calendarData = await fetchAPICalendar();
+  const data = await fetchAPI();
+  const calendarData = await fetchAPICalendar();
   return (
 
     <main>
-      <Calendario calendarData={calendarData} />
-      </main>
+      <Hom />
+    </main>
   );
 }
