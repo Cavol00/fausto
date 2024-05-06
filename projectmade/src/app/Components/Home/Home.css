@@ -115,3 +115,24 @@ h1 {
     transform: translateX(-50%);
     margin-top: 1px;
 }
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.video-container video {
+    width: 600px; /* Dimensione desiderata per il video */
+    height: 400px; /* Dimensione desiderata per il video */
+    border: 2px solid #ccc; /* Stile del bordo */
+    border-radius: 10px; /* Arrotondamento del bordo */
+    outline: none; /* Rimuove l'outline quando il video è selezionato */
+}
+
+.video-container p {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
+}
