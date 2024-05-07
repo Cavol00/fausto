@@ -65,11 +65,9 @@ export default function Home() {
 
     return (
         <div className="sfondo">
-            
             <h1 className="titolo">ORIENTAMENTO</h1>
             <div className="ciao">
                 <div className="container">
-
                     <div className="image-container">
                         <button className="sdrogo" onClick={() => setStartImageIndex(Math.max(startImageIndex - 1, 0))} disabled={startImageIndex === 0}>
                             <span className="iconP"></span>
@@ -97,7 +95,6 @@ export default function Home() {
                             <p>{video[currentImageIndexSecond].text}</p>
                             <p>{video[currentImageIndexSecond].indirizzo}</p>
                         </div>
-                        <button onClick={() => setCurrentImageIndexSecond(Math.min(currentImageIndexSecond + 1, video.length - 1))} disabled={currentImageIndexSecond === video.length - 1}>Next</button>
                     </div>
                 </div>
             </div>
