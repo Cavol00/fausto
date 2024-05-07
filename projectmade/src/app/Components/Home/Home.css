@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100..900&display=swap');
+
 .sfondo {
     background: url("/wave2.svg");
     width: 100%;
@@ -84,6 +86,7 @@
 
 
 }
+
 .iconP {
     rotate: 180deg;
     display: inline-block;
@@ -105,21 +108,24 @@
     display: none;
 }
 
-h1 {
+.titolo {
+    left: 69%;
     position: absolute;
     z-index: 1;
+    font-family: "Big Shoulders Display", sans-serif;
+    font-style: normal;
     font-size: 15rem;
-    font-weight: bold;
     top: 0;
-    left: 50%;
     transform: translateX(-50%);
     margin-top: 1px;
 }
+
 .video-container {
     display: flex;
     justify-content: left;
     align-items: center;
-    width: 100%;
+    width: 400px;
+    height: 300px;
     padding: 20px;
 }
 
