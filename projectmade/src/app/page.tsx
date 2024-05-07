@@ -8,10 +8,12 @@ export default async function Home() {
   const data = await fetchAPI();
   const calendarData = await fetchAPICalendar();
   return (
-
     <main>
       <Nav />
-      <Hom  />
+
+      <Hom />
+      <Calendario calendarData={calendarData} />
+      <FiltroMappa />
     </main>
   );
 }
